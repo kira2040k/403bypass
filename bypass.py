@@ -5,7 +5,7 @@ if (2 <= len(sys.argv) <= 2):
     url = sys.argv[1]
 else:
     print("Usage: python 4xx.py url")
-
+    exit()
 r4 = requests.post(url,headers={"Content-Length": "0"})
 if(r4.status_code == 200):
     print("post request and Content-Length:0")
