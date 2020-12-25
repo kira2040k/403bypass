@@ -4,7 +4,7 @@ import threading
 import re
 from ipaddress import IPv4Network
 from functions import *
-if (2 <= len(sys.argv) <= 2):
+if (len(sys.argv) != 2):
     url = sys.argv[1]
     
 else:
