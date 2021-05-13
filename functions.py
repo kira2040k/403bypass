@@ -22,6 +22,9 @@ def add_two_slashes(url,path):
         payload = f"{url}//{path}//"
         r = requests.get(payload,timeout=5)
         print(f"{payload} --> {r.status_code}")
+        payload = f"{url}//{path}"
+        r = requests.get(payload,timeout=5)
+        print(f"{payload} --> {r.status_code}")
     except:
         pass
 

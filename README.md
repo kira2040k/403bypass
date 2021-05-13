@@ -1,5 +1,6 @@
 # 403bypass
-bypass some 403 pages 
+bypass  403 pages 
+
 
 # usage:
         
