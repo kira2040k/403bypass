@@ -4,19 +4,21 @@ import threading
 import re
 from ipaddress import IPv4Network
 from functions import *
-if (len(sys.argv) == 2):
+if (len(sys.argv) == 3):
     url = sys.argv[1]
-    
+    path = sys.argv[2]
 else:
-    print("Usage: python 4xx.py url")
-    print("example 4xx.py https://google.com/admin/")
+    print("Usage: python 4xx.py url path")
+    print("without / in the end of url")
+    print("example 4xx.py https://google.com admin")
     exit()
-test1(url)
-test2(url)
-test3(url)
-test4(url)
-
-
-for i in range(1,256):
-    x = threading.Thread(target=attack,args=(i,url,))
-    x.start()
+add_url_encode(url,path)
+add_dot(url,path)
+add_two_slashes(url,path)
+add_two_dots(url,path)
+add_original_header(url,path)
+rewrite(url,path)
+add_space_url_encode(url,path)
+#add_slash(url)
+#add_header(url)
+#post_content_lenght(url)
