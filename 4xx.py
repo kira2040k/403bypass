@@ -12,6 +12,17 @@ else:
     print("without / in the end of url")
     print("example 4xx.py https://google.com admin")
     exit()
+
+print("""
+ _  _   __ __   ____   _____  __    __   __  
+| || | /  \__`.|  \ `v' / _,\/  \ /' _//' _/ 
+`._  _| // |_ || -<`. .'| v_/ /\ |`._`.`._`. 
+   |_| \__/__.'|__/ !_! |_| |_||_||___/|___/ 
+
+    insta:at9w
+    twiiter:kira_321k
+    
+""")
 add_url_encode(url,path)
 add_dot(url,path)
 add_two_slashes(url,path)
@@ -21,3 +32,4 @@ rewrite(url,path)
 add_space_url_encode(url,path)
 add_header(url,path)
 post_content_lenght(url,path)
+pathManipulating(url,path)
