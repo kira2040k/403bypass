@@ -21,8 +21,9 @@ print("""
 
     insta:at9w
     twiiter:kira_321k
-    
+
 """)
+
 add_url_encode(url,path)
 add_dot(url,path)
 add_two_slashes(url,path)
